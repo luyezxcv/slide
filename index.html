@@ -101,7 +101,8 @@
 				touchStart(event) {
 					startX = event.touches[0].pageX
 				},
-				touchMove() {
+				touchMove(event) {
+					event.preventDefault()
 					len = this.$refs.bookImg.length
 					slideX = event.targetTouches[0].pageX - startX		
 					for(var i=0; i<len; i++){
