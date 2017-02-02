@@ -121,7 +121,6 @@
 							}
 							document.documentElement.scrollTop = document.body.scrollTop = 0
 							this.contentI++
-							slideX = 0
 						}else{
 							for(var i=0; i<len; i++){
 								this.$refs.bookImg[i].style.webkitTransform = 'translate3d('+(i-this.contentI)*winW + 'px' + ',0,0)'
@@ -134,7 +133,6 @@
 								}
 							document.documentElement.scrollTop = document.body.scrollTop = 0
 							this.contentI--
-							slideX = 0
 						}else{
 							for(var i=0; i<len; i++){
 								this.$refs.bookImg[i].style.webkitTransform = 'translate3d('+(i-(this.contentI))*winW + 'px' + ',0,0)'
