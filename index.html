@@ -25,9 +25,6 @@
 			position: absolute;
 			display: block;
 			width: 100%;
-			transition: all 0.5s ease-out;
-			-webkit-transition: all 0.5s ease-out;
-			width: 100%;
 			height: 100%
 		}
 		.item img{
@@ -103,7 +100,6 @@
 				},
 				touchStart(event) {
 					startX = event.touches[0].pageX
-					startY = event.touches[0].clientY	
 				},
 				touchMove() {
 					len = this.$refs.bookImg.length
@@ -117,10 +113,12 @@
 					if(slideX < 0){
 						if(slideX < -100 && this.contentI < len-1){
 							for(var i=0; i<len; i++){
+								this.$refs.bookImg[i].style.webkitTransition = 'all 0.5s ease-out'
 								this.$refs.bookImg[i].style.webkitTransform = 'translate3d('+(i-(1+this.contentI))*winW + 'px' + ',0,0)'
 							}
 							document.documentElement.scrollTop = document.body.scrollTop = 0
 							this.contentI++
+							
 						}else{
 							for(var i=0; i<len; i++){
 								this.$refs.bookImg[i].style.webkitTransform = 'translate3d('+(i-this.contentI)*winW + 'px' + ',0,0)'
@@ -133,6 +131,7 @@
 								}
 							document.documentElement.scrollTop = document.body.scrollTop = 0
 							this.contentI--
+							
 						}else{
 							for(var i=0; i<len; i++){
 								this.$refs.bookImg[i].style.webkitTransform = 'translate3d('+(i-(this.contentI))*winW + 'px' + ',0,0)'
